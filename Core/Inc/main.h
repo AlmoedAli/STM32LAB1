@@ -58,46 +58,30 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define red1_Pin GPIO_PIN_0
-#define red1_GPIO_Port GPIOA
-#define green1_Pin GPIO_PIN_1
-#define green1_GPIO_Port GPIOA
-#define yellow1_Pin GPIO_PIN_2
-#define yellow1_GPIO_Port GPIOA
-#define led1A_Pin GPIO_PIN_3
-#define led1A_GPIO_Port GPIOA
-#define led1B_Pin GPIO_PIN_4
-#define led1B_GPIO_Port GPIOA
-#define led1C_Pin GPIO_PIN_5
-#define led1C_GPIO_Port GPIOA
-#define led1D_Pin GPIO_PIN_6
-#define led1D_GPIO_Port GPIOA
-#define led1E_Pin GPIO_PIN_7
-#define led1E_GPIO_Port GPIOA
-#define red2_Pin GPIO_PIN_0
-#define red2_GPIO_Port GPIOB
-#define green2_Pin GPIO_PIN_1
-#define green2_GPIO_Port GPIOB
-#define yellow2_Pin GPIO_PIN_2
-#define yellow2_GPIO_Port GPIOB
-#define led1F_Pin GPIO_PIN_8
-#define led1F_GPIO_Port GPIOA
-#define led1G_Pin GPIO_PIN_9
-#define led1G_GPIO_Port GPIOA
-#define led2A_Pin GPIO_PIN_3
-#define led2A_GPIO_Port GPIOB
-#define led2B_Pin GPIO_PIN_4
-#define led2B_GPIO_Port GPIOB
-#define led2C_Pin GPIO_PIN_5
-#define led2C_GPIO_Port GPIOB
-#define led2D_Pin GPIO_PIN_6
-#define led2D_GPIO_Port GPIOB
-#define led2E_Pin GPIO_PIN_7
-#define led2E_GPIO_Port GPIOB
-#define led2F_Pin GPIO_PIN_8
-#define led2F_GPIO_Port GPIOB
-#define led2G_Pin GPIO_PIN_9
-#define led2G_GPIO_Port GPIOB
+#define led1_Pin GPIO_PIN_4
+#define led1_GPIO_Port GPIOA
+#define led2_Pin GPIO_PIN_5
+#define led2_GPIO_Port GPIOA
+#define led3_Pin GPIO_PIN_6
+#define led3_GPIO_Port GPIOA
+#define led4_Pin GPIO_PIN_7
+#define led4_GPIO_Port GPIOA
+#define led5_Pin GPIO_PIN_8
+#define led5_GPIO_Port GPIOA
+#define led6_Pin GPIO_PIN_9
+#define led6_GPIO_Port GPIOA
+#define led7_Pin GPIO_PIN_10
+#define led7_GPIO_Port GPIOA
+#define led8_Pin GPIO_PIN_11
+#define led8_GPIO_Port GPIOA
+#define led9_Pin GPIO_PIN_12
+#define led9_GPIO_Port GPIOA
+#define led10_Pin GPIO_PIN_13
+#define led10_GPIO_Port GPIOA
+#define led11_Pin GPIO_PIN_14
+#define led11_GPIO_Port GPIOA
+#define led0_Pin GPIO_PIN_15
+#define led0_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
