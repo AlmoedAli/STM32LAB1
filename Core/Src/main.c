@@ -55,22 +55,24 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 
 /* USER CODE BEGIN 0 */
-void clearAllClock()
-{
-	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
-						led11_Pin};
-	for (int i= 0; i < 12; i++)
-	{
-		HAL_GPIO_WritePin(GPIOA, array[i], RESET);
-	}
-}
-
-void setNumberOnClock(int num)
+void setNumberOnClock()
 {
 	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
 							led11_Pin};
-	HAL_GPIO_WritePin(GPIOA, array[num], SET);
+	for (int i= 0; i < 12; i++)
+	{
+		HAL_GPIO_WritePin(GPIOA, array[i], SET);
+	}
 }
+void clearNumberOnClock(int num)
+{
+	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
+						led11_Pin};
+	setNumberOnClock();
+	HAL_GPIO_WritePin(GPIOA, array[num], RESET);
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -109,7 +111,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  setNumberOnClock(10);
+	  clearNumberOnClock(10);
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
