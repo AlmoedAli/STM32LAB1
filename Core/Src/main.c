@@ -64,6 +64,13 @@ void clearAllClock()
 		HAL_GPIO_WritePin(GPIOA, array[i], RESET);
 	}
 }
+
+void setNumberOnClock(int num)
+{
+	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
+							led11_Pin};
+	HAL_GPIO_WritePin(GPIOA, array[num], SET);
+}
 /* USER CODE END 0 */
 
 /**
@@ -102,7 +109,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  clearAllClock();
+	  setNumberOnClock(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
