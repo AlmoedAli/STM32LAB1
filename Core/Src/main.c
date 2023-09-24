@@ -53,25 +53,7 @@ static void MX_GPIO_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
-
 /* USER CODE BEGIN 0 */
-void setNumberOnClock()
-{
-	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
-							led11_Pin};
-	for (int i= 0; i < 12; i++)
-	{
-		HAL_GPIO_WritePin(GPIOA, array[i], SET);
-	}
-}
-void clearNumberOnClock(int num)
-{
-	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
-						led11_Pin};
-	setNumberOnClock();
-	HAL_GPIO_WritePin(GPIOA, array[num], RESET);
-}
-
 
 /* USER CODE END 0 */
 
@@ -108,11 +90,60 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite loop */
+  uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin, led11_Pin};
+  int h= 0;
+  int min= 0;
+  int second= 0;
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  clearNumberOnClock(10);
-	  HAL_Delay(1000);
+	  switch (second)
+	  {
+		case 60:
+			HAL_GPIO_WritePin(GPIOA, array[(second-1)/ 5], RESET);
+			second= 1;
+			min+= 1;
+			switch (min)
+			{
+				case 60:
+					HAL_GPIO_WritePin(GPIOA, array[(min-1)/ 5], RESET);
+					min= 0;
+					h+= 1;
+					switch (h)
+					{
+						case 12:
+							HAL_GPIO_WritePin(GPIOA, array[(h-1)% 12], RESET);
+							h= 0;
+							break;
+						default:
+							HAL_GPIO_WritePin(GPIOA, array[(h-1)% 12], RESET);
+							break;
+					}
+					break;
+				default:
+					HAL_GPIO_WritePin(GPIOA, array[(min-1)/ 5], RESET);
+					break;
+			}
+			HAL_GPIO_WritePin(GPIOA, array[h%12], SET);
+			HAL_GPIO_WritePin(GPIOA, array[min/ 5], SET);
+			HAL_GPIO_WritePin(GPIOA, array[second/ 5], SET);
+			break;
+		case 0:
+			HAL_GPIO_WritePin(GPIOA, array[h%12], SET);
+			HAL_GPIO_WritePin(GPIOA, array[min/ 5], SET);
+			HAL_GPIO_WritePin(GPIOA, array[second/ 5], SET);
+			second+= 1;
+			break;
+		default:
+			HAL_GPIO_WritePin(GPIOA, array[(second- 1)/ 5], RESET);
+			HAL_GPIO_WritePin(GPIOA, array[second/ 5], SET);
+			HAL_GPIO_WritePin(GPIOA, array[h%12], SET);
+			HAL_GPIO_WritePin(GPIOA, array[min/ 5], SET);
+			second+= 1;
+			break;
+	  }
+	  HAL_Delay(5);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
