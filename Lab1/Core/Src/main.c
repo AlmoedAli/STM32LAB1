@@ -95,13 +95,10 @@ int main(void)
   int flag= 0;
   while (1)
   {
-	  switch (counter)
-	  {
+	  switch (counter){
 		case 2:
-			switch (flag)
-			{
+			switch (flag){
 				case 1:
-//					HAL_GPIO_TogglePin(GPIOx, GPIO_Pin)
 					HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 					HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 					break;
@@ -111,8 +108,7 @@ int main(void)
 			counter= 1;
 			break;
 		case 0:
-			switch(flag)
-			{
+			switch(flag){
 				case 0:
 					HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 					flag= 1;
