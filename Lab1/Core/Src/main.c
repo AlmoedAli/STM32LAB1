@@ -55,23 +55,44 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 
 /* USER CODE BEGIN 0 */
-void setNumberOnClock()
+//void setNumberOnClock()
+//{
+//	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
+//							led11_Pin};
+//	for (int i= 0; i < 12; i++)
+//	{
+//		HAL_GPIO_WritePin(GPIOA, array[i], SET);
+//	}
+//}
+uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin,
+		led8_Pin, led9_Pin, led10_Pin, led11_Pin};
+void setNumberOnClock(int num)
 {
-	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
-							led11_Pin};
-	for (int i= 0; i < 12; i++)
-	{
-		HAL_GPIO_WritePin(GPIOA, array[i], SET);
-	}
+	HAL_GPIO_WritePin(GPIOA, array[num], SET);
 }
-void clearNumberOnClock(int num)
-{
-	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
-						led11_Pin};
-	setNumberOnClock();
-	HAL_GPIO_WritePin(GPIOA, array[num], RESET);
-}
-
+//
+//uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin,
+//		led8_Pin, led9_Pin, led10_Pin, led11_Pin};
+//void clearNumberOnClock(int num)
+//{
+//	for (int i= 0;  i < num; i++)
+//		HAL_GPIO_WritePin(GPIOA, array[i], SET);
+//
+//	for (int i= num+ 1; i < 12; i++)
+//		HAL_GPIO_WritePin(GPIOA, array[i], SET);
+//
+//	HAL_GPIO_WritePin(GPIOA, array[num], RESET);
+//
+//}
+//void clearAllClock()
+//{
+//	uint16_t array[12]= {led0_Pin, led1_Pin, led2_Pin, led3_Pin, led4_Pin, led5_Pin, led6_Pin, led7_Pin, led8_Pin, led9_Pin, led10_Pin,
+//						led11_Pin};
+//	for (int i= 0; i < 12; i++)
+//	{
+//		HAL_GPIO_WritePin(GPIOA, array[i], RESET);
+//	}
+//}
 
 /* USER CODE END 0 */
 
@@ -111,8 +132,24 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  clearNumberOnClock(10);
-	  HAL_Delay(1000);
+//	 if (counter== 12)
+//	 {
+//		 HAL_GPIO_TogglePin(GPIOA, array[counter-1]);
+//		counter= 0;
+//	 }
+//
+//	 if (counter > 0)
+//	 {
+//		 	HAL_GPIO_TogglePin(GPIOA, array[counter-1]);
+//	 	 	 HAL_GPIO_TogglePin(GPIOA, array[counter]);
+//	 }
+//	 else
+//	 {
+//		 HAL_GPIO_TogglePin(GPIOA, array[counter]);
+//	 }
+//	 counter+= 1;
+//	 HAL_Delay(1000);
+	  setNumberOnClock(5);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
